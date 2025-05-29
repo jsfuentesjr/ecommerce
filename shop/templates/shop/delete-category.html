@@ -1,0 +1,34 @@
+{% include "store/base.html" %}
+
+
+{% load static %}
+
+
+
+{% block content %}
+
+    <br><br>
+    <div class="row">
+        <div class="col-mid-5">
+            <h5>DELETING CATEGORY</h5>
+            <hr>
+            <p>Are you sure you want to delete the {{item}}?</p>
+            <form action="{% url 'delete-category' item.id %}" method="POST">
+                {% csrf_token %}
+                <a href="{% url 'manage-shop' %}">Cancel</a>
+                <input type="submit" name="confirm">
+            </form>
+
+    
+    
+        </div>
+    </div>
+
+    
+
+
+
+
+
+
+{% endblock %}

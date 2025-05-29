@@ -1,0 +1,116 @@
+
+
+{% include "store/base.html" %}
+
+
+{% load static %}
+
+
+
+{% block content %}
+
+
+<style>
+    .row{
+        padding: 50px;
+    }
+
+
+    .col-mid-5{
+        margin-bottom: 60px;
+    }
+</style>
+
+<br><br>
+<div class="row">
+    <div class="col-mid-5">
+        <h5>ITEM CATEGORY</h5>
+        <hr>
+        <div class="card card-body">
+            <a class="btn btn-primary btn-block" href="{% url 'add-category'%}">Create Category</a>
+            <table class="table table-sm">
+                <thead>
+                    <tr>
+                      <th scope="col"></th>
+                      <th scope="col">ID</th>
+                      <th scope="col">Category</th>
+                      
+                    </tr>
+                  </thead>
+
+                {% for category in all_categories%}
+                <tbody>
+                
+                    <tr class="table-secondary">
+                      <td></td>
+                      <td>{{category.id}}</td>
+                      <td>{{category.name}}</td>
+                      <td><a class="btn btn-success btn-sm" href="{% url 'update-category' category.id %}">Update</a></td>
+                      <td><a class="btn btn-danger btn-sm" href="{% url 'delete-category' category.id %}">Delete</a></td>
+                      
+                    </tr>
+                </tbody>
+                {% endfor %}
+                 
+
+
+            
+               
+            </table>
+        </div>
+
+
+    </div>
+
+    <br><br>
+    
+    <div class="col-mid-7">
+        <h5>ITEMS</h5>
+        <hr>
+        <div class="card card-body">
+            <a class="btn btn-primary btn-block" href="{% url 'add-product' %}">Create Product</a>
+            <table class="table table-sm">
+                <thead>
+                    <tr>
+                      <th scope="col"></th>
+                      <th scope="col">ID</th>
+                      <th scope="col">Category</th>
+                      <th scope="col">Name</th>
+                      <th scope="col">Description</th>
+                      <th scope="col">Price</th>
+                      
+                    </tr>
+                  </thead>
+
+                {% for item in all_products %}
+                <tbody>
+                
+                    <tr class="table-secondary">
+                      <td></td>
+                      <td>{{item.id}}</td>
+                      <td>{{item.category}}</td>
+                      <td>{{item.title}}</td>
+                      <td>{{item.description}}</td>
+                      <td>PHP {{item.price}}</td>
+                      <td><a class="btn btn-success btn-sm" href="{% url 'update-product' item.id %}">Update</a></td>
+                      <td><a class="btn btn-danger btn-sm" href="{% url 'delete-product' item.id %}">Delete</a></td>
+                      
+                    </tr>
+                </tbody>
+                {% endfor %}
+                 
+
+
+                  
+
+
+            
+               
+            </table>
+        </div>
+
+
+    </div>
+</div>
+
+{% endblock %}

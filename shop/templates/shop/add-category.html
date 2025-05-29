@@ -1,0 +1,40 @@
+{% include "store/base.html" %}
+
+
+{% load static %}
+
+
+
+{% block content %}
+
+    <br><br>
+    <div class="row">
+        <div class="col-mid-5">
+            <h5>CREATE CATEGORY</h5>
+            <hr>
+            <form action="" method="POST">
+                {% csrf_token %}
+                {{form|safe}}
+            <input type="submit" name="submit">
+            </form>
+
+    
+    
+        </div>
+    </div>
+
+    
+
+
+
+
+
+
+    
+
+
+
+
+
+
+{% endblock %}

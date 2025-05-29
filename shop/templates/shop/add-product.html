@@ -1,0 +1,38 @@
+
+
+
+{% include "store/base.html" %}
+
+
+{% load static %}
+
+
+
+{% block content %}
+
+    <br><br>
+    <div class="row">
+        <div class="col-mid-5">
+            <h5>CREATE PRODUCT</h5>
+            <hr>
+            <form action="" method="POST" enctype="multipart/form-data">
+                {% csrf_token %}
+                {{form.as_p}}
+                <br><br>
+
+                 <input type="submit" name="submit">
+            </form>
+
+    
+    
+        </div>
+    </div>
+
+    
+
+
+
+
+
+
+{% endblock %}
